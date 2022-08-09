@@ -22,8 +22,8 @@ export default function Home({ time }) {
       <main className={styles.main}>
         <h1 className={(styles.title, styles.time)}>{time}</h1>
         <h1>
-          <Link href="/csr">
-            <a>CSR 로</a>
+          <Link href="/">
+            <a>Home 로</a>
           </Link>
         </h1>
       </main>
