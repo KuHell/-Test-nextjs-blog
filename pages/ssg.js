@@ -4,14 +4,14 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 
-export default function CSR() {
-  const [time, setTime] = useState();
+export async function getStaticProps() {
+  console.log("server");
+  return {
+    props: { time: new Date().toISOString() },
+  };
+}
 
-  useEffect(() => {
-    console.log("client");
-    setTime(new Date().toISOString());
-  }, []);
-
+export default function SSG({ time }) {
   return (
     <div className={styles.container}>
       <Head>
