@@ -1,13 +1,13 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import styles from '../styles/Home.module.css'
 
 export async function getServerSideProps() {
-  console.log("server");
+  console.log('server')
   return {
     props: { time: new Date().toISOString() },
-  };
+  }
 }
 
 export default function Home({ time }) {
@@ -30,5 +30,5 @@ export default function Home({ time }) {
         </Link>
       </h1>
     </>
-  );
+  )
 }

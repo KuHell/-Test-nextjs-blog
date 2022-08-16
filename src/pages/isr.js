@@ -1,15 +1,15 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import { useEffect, useState } from "react";
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
 
 export async function getStaticProps() {
-  console.log("server");
+  console.log('server')
   return {
     props: { time: new Date().toISOString() },
     revalidate: 1,
-  };
+  }
 }
 
 export default function ISR({ time }) {
@@ -24,5 +24,5 @@ export default function ISR({ time }) {
         </h1>
       </main>
     </div>
-  );
+  )
 }
