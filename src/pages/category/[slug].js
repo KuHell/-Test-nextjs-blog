@@ -5,10 +5,12 @@ import { useRouter } from 'next/router'
 
 export default function CategorySlug() {
   const router = useRouter()
-  const { slug } = router.query
+  const { slug, from } = router.query
   return (
     <>
-      <h1 className={(styles.title, styles.time)}>Category {slug}</h1>
+      <h1 className={(styles.title, styles.time)}>
+        Category {slug} {from}
+      </h1>
     </>
   )
 }
