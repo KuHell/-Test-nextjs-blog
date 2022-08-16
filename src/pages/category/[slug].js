@@ -1,11 +1,14 @@
 import styles from '../../../styles/Home.module.css'
 import Layout from 'components/Layout'
 import SubLayout from 'components/SubLayout'
+import { useRouter } from 'next/router'
 
 export default function CategorySlug() {
+  const router = useRouter()
+  const { slug } = router.query
   return (
     <>
-      <h1 className={(styles.title, styles.time)}>CategorySlug</h1>
+      <h1 className={(styles.title, styles.time)}>Category {slug}</h1>
     </>
   )
 }
