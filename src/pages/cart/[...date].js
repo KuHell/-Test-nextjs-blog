@@ -8,7 +8,9 @@ export default function CartDateSlug() {
   const { date } = router.query
   return (
     <>
-      <h1 className={(styles.title, styles.time)}>CartDate Slug</h1>
+      <h1 className={(styles.title, styles.time)}>
+        CartDate Slug {JSON.stringify(date)}{' '}
+      </h1>
     </>
   )
 }
