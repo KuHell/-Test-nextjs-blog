@@ -21,6 +21,9 @@ export default function CartDateSlug() {
       <button onClick={() => router.push('/cart/2022/08/20')}>
         2022년08월20일 로 이동
       </button>
+      <button onClick={() => router.push('/cart/2022/08/20')}>
+        2022년08월21일 로 출발
+      </button>
     </>
   )
 }
