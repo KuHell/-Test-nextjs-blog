@@ -16,7 +16,7 @@ export async function getStaticProps() {
 export default function SSG({ time }) {
   return (
     <>
-      <h1 className={(styles.title, styles.time)}>{time}</h1>
+      <h1 className={(styles.title, styles.time)}>time{time}</h1>
     </>
   )
 }
