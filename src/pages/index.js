@@ -19,7 +19,7 @@ export default function Home({ time }) {
           <a>CSR 로</a>
         </Link>
       </h1>
-      <h1>
+      {/* <h1>
         <Link href="/ssg">
           <a>SSG 로</a>
         </Link>
@@ -28,7 +28,7 @@ export default function Home({ time }) {
         <Link href="/isr">
           <a>ISR 로</a>
         </Link>
-      </h1>
+      </h1> */}
     </>
   )
 }
