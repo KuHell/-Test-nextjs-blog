@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
+// import styles from '../../styles/'
 import { useEffect, useState } from 'react'
 import SubLayout from '../components/SubLayout'
 import Layout from '../components/Layout'
@@ -16,15 +17,16 @@ export async function getStaticProps() {
 export default function SSG({ time }) {
   return (
     <>
-      <h1 className={(styles.title, styles.time)}>time{time}</h1>
+      <h1>SSG</h1>
+      <h1 className={(styles.title, styles.time)}>{time}</h1>
     </>
   )
 }
 
-SSG.getLayout = function getLayout(page) {
-  return (
-    <Layout>
-      <SubLayout>{page}</SubLayout>
-    </Layout>
-  )
-}
+// SSG.getLayout = function getLayout(page) {
+//   return (
+//     <Layout>
+//       <SubLayout>{page}</SubLayout>
+//     </Layout>
+//   )
+// }

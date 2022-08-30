@@ -78,6 +78,8 @@ export default function CSR() {
   )
 }
 ```
+CSR.js 파일을 추가해 다음과 같이 작성 후 테스트 진행
+
 ![](https://velog.velcdn.com/images/itkdgus489/post/d8b803bf-226e-4da7-bb55-365fa334957e/image.png)
 
 CSR버튼 클릭시 CSR로 이동 하면서 console.log에 `client`가 찍히는걸 확인 할 수 있다.
@@ -85,3 +87,40 @@ CSR버튼 클릭시 CSR로 이동 하면서 console.log에 `client`가 찍히는
 
 
 ***
+### SSG(Static-Site Generation)
+> 정적인 사이트 데이터를 가져와서 만들어 둔다
+
+해당 방식은 클라이언트에서 필요한 페이지들을 사전에 미리 준비해뒀다가, 요청을 받으면 이미 완성된 파일을 반환하여 브라우저에서 보여지게 된다
+
+``` javascript
+import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
+
+
+export async function getStaticProps() {
+  console.log('server')
+  return {
+    props: { time: new Date().toISOString() },
+  }
+}
+
+export default function SSG({ time }) {
+  return (
+    <>
+      <h1 className={(styles.title, styles.time)}>time{time}</h1>
+    </>
+  )
+}
+```
+SSG.js파일을 추가해 다음과 같이 작성 후 테스트 진행
+
+![](https://velog.velcdn.com/images/itkdgus489/post/59e197c4-990e-4366-bda3-2b76fcc4ecf3/image.png)
+서버에서 실행이 된다 
+> 실행을 dev로 실행 했기떄문에 SSG방식으로 실행이 된다
+
+프로젝트릴 `build`후 `yarn start`로 실행 후 테스트 진행 해야 올바른 결과 확인가능
+테스트 후 실행 하면 
+
+> client와 server 아무곳도 console이 찍히지 않는다. 그 이유는 정적인 사이트를 미리 만들두기 때문에 build머신 자체가 데이터를 가져와서 그려두는 이유 때문에 어디에도 console이 나오지 않는다
+
+블로그 같은 만들어 두면 계속 사용 하는 구조의 프로젝트에서 사용 하면 서버의 과부하를 방지 할 수 있다.
