@@ -9,26 +9,51 @@ npm run dev
 # or
 yarn dev
 ```
+## Next.js가 제시하는 4가지 Data Fetching 방법
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. SSR(Server Side Render)
+2. CSR
+3. SSG
+4. ISR
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### SSR(Server Side Render)
+> 서버에서 만들어서 클라이언트로 보내준다
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+서버에서 사용자에게 보여줄 페이지를 모두 만들어서 사용자에게 페이지를 보여주는 방식이다.
+SSR방식을 사용하면 모든 데이터가 매핑된 서비스 페이지를 클라이언트에게 바로 보여진다 페이지를 구성하는 속도는 늦어지지만 전체적으로 사용자에게 보여주는 콘텐츠 구성이 완료되는 시점은 빨라진다는 장점이 있다.
 
-## Learn More
+index.js에 함수 하나를 만들어서 테스트 진행
 
-To learn more about Next.js, take a look at the following resources:
+``` javascript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+import styles from '../../styles/Home.module.css'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+export async function getServerSideProps() {
+  console.log('server')
+  return {
+    props: { time: new Date().toISOString() },
+  }
+}
 
-## Deploy on Vercel
+export default function Home({ time }) {
+  return (
+    <>
+      <h1 className={(styles.title, styles.time)}>{time}</h1>
+    </>
+  )
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+index.js파일에 함수를 만들어서 실행을 시켜 보면
+![업로드중..](blob:https://velog.io/a38747f3-e953-4a2b-b9b9-897b11306dec)
+서버에 server라고 콘솔이 찍힌다
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+서버에서 데이터를 받아서 클라이언트로 보내준걸 확인 할 수 있다.
+***
+
+### CSR
+> 브라우저 에서 데이터를 그린다.
+
+CSR은 SSR보다 초기 전송되는 페이지의 속도는 빠르지만 서비스에서 필요한 데이터를 클라이언트(브라우저)에서 추가로 요청하여 재구성해야 하기 때문에 전제적인 페이지 완료 시점은 SSR보다 느려진다.
+
