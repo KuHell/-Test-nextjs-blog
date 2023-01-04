@@ -4,8 +4,8 @@ import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 // import styles from '../../styles/'
 import { useEffect, useState } from 'react'
-import SubLayout from '../components/SubLayout'
-import Layout from '../components/Layout'
+import SubLayout from '../../components/SubLayout'
+import Layout from '../../components/Layout'
 
 export async function getStaticProps() {
   console.log('server')
