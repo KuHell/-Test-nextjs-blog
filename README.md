@@ -178,3 +178,85 @@ components/Layout.js
 NextJS는 Router가 file-system기반이다.
 
 파일을 만들면 자동으로 router가 적용된다.
+
+## Dynamic Routes
+
+[slug] 값은 어떻게 활용할 것 인가
+
+pages/category/[slug].js
+
+```javascript
+import { useRouter } from 'next/router'
+const route = useRouter()
+const { slug } = router.query
+```
+
+`route.query`로 URL에 들어간 값을 출력 할 수 있다.
+
+```javascript
+export default function CategorySlug() {
+  const router = useRouter()
+  const { slug, from } = router.query
+  return (
+    <>
+      <h1 className={(styles.title, styles.time)}>
+        Category {slug} {from}
+      </h1>
+    </>
+  )
+}
+```
+
+`localhost:3000/category/Test?from=KuHell`을 입력하면 from에는 KuHell이 출력된다
+
+없으면 undefined, null
+
+## shallow Routing
+
+getServerSideProps / getStaticProps 등을 다시 실행 시키지 않고,
+
+### 상태만 유지하면서 URL만 바꾸는 경우
+
+사용자가 어떤 동작을 했고, 그 기록을 query로 남기고 싶을때
+
+query로 남기면 사용자가 새로고침을 해도 유지된다.
+
+### 현재 상태를 잃지 않고 URL을 바꾸는 방법
+
+- location.replace('url') = 로컬 state 유지 안됨(리렌더)
+- router.push('url') = 로컬 state 유지 / data fetching 일어남
+- router.push('url', as, { shallow: ture }) = 로컬 state유지 / data fetching 일어나지 않음
+
+```javascript
+<button
+        onClick={() => {
+          alert('edit')
+          setClicked(!clicked)
+          location.replace('/settings/my/info?status=editting')
+        }}
+      >
+        edit(replace)
+      </button>
+      <br />
+      <button
+        onClick={() => {
+          alert('edit')
+          setClicked(!clicked)
+          router.push('/settings/my/info?status=editting')
+        }}
+      >
+        edit(router)
+      </button>
+      <br />
+      <button
+        onClick={() => {
+          alert('edit')
+          setClicked(!clicked)
+          router.push('/settings/my/info?status=editting', undefined, {
+            shallow: true,
+          })
+        }}
+      >
+        edit(shallow)
+      </button>
+```
