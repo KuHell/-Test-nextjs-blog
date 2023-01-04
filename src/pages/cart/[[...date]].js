@@ -3,8 +3,8 @@ import styles from '../../../styles/Home.module.css'
 // import SubLayout from '../components/SubLayout'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Layout from '../../../components/Layout'
-import SubLayout from '../../../components/SubLayout'
+import Layout from '../components/Layout'
+import SubLayout from '../components/SubLayout'
 
 export default function CartDateSlug() {
   const router = useRouter()

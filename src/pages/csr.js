@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import Layout from '../../components/Layout'
-import SubLayout from '../../components/SubLayout'
+import Layout from './components/Layout'
+import SubLayout from './components/SubLayout'
 
 export default function CSR() {
   const [time, setTime] = useState()
@@ -21,8 +21,8 @@ export default function CSR() {
 
 CSR.getLayout = function getLayout(page) {
   return (
-    // <Layout>
-    <SubLayout>{page}</SubLayout>
-    // </Layout>
+    <Layout>
+      <SubLayout>{page}</SubLayout>
+    </Layout>
   )
 }

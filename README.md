@@ -160,3 +160,21 @@ components/Layout.js
 컴포넌트 하나를 pages/\_app.js에서 활용하면 된다.
 
 > 페이지가 아니라 컴포넌트에는 SSR을 할 수 없다.
+
+# NextJS 가 제공하는 최적화 Image Component
+
+- Improved Performance
+
+- Visual Stability(CLS-Cumulative Layout Shift 방지)
+
+- Faster Page Loads(viewport 진입시 로드 / blur 처리)
+
+- Asset Flexibility(리사이징)
+
+---
+
+# Router
+
+NextJS는 Router가 file-system기반이다.
+
+파일을 만들면 자동으로 router가 적용된다.

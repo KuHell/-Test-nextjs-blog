@@ -2,8 +2,8 @@ import styles from '../../../styles/Home.module.css'
 // import Layout from '../components/Layout'
 // import SubLayout from '../components/SubLayout'
 import { useRouter } from 'next/router'
-import Layout from '../../../components/Layout'
-import SubLayout from '../../../components/SubLayout'
+import Layout from '../components/Layout'
+import SubLayout from '../components/SubLayout'
 
 export default function CategorySlug() {
   const router = useRouter()
