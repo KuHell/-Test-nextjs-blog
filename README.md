@@ -260,3 +260,25 @@ query로 남기면 사용자가 새로고침을 해도 유지된다.
         edit(shallow)
       </button>
 ```
+
+---
+
+# API
+
+Application Programming Interface
+
+응용 프로그래밍 인터페이스
+컴퓨터나 컴퓨터 프로그램 사이의 연결
+
+Frontend Service - Backend Service 간의 연결
+
+Frontend Service는 고객과 닿아있고,
+
+Backend Service는 DB에 닿아있다.
+
+고객이 DB에 접근 하기 위해 FE는 BE와 연결되어야 한다 이떄 API를
+활용한다. BE가 제공해주는 API를 통해 DB의 내용을 활용할 수 있다.
+
+# NextJS가 제공하는 API Routes
+
+pages/api/\*
