@@ -1,5 +1,6 @@
-import Layout from '../../components/Layout'
+import Layout from '../components/Layout'
 
+// NextJS에서 제공하는 API
 export default function App({ Component, pageProps }) {
   // return (
   //   <Layout>

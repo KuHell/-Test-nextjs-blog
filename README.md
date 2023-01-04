@@ -158,3 +158,5 @@ SSG.js파일을 추가해 다음과 같이 작성 후 테스트 진행
 components/Layout.js
 
 컴포넌트 하나를 pages/\_app.js에서 활용하면 된다.
+
+> 페이지가 아니라 컴포넌트에는 SSR을 할 수 없다.
