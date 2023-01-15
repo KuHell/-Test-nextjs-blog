@@ -254,6 +254,7 @@ query로 남기면 사용자가 새로고침을 해도 유지된다.
           setClicked(!clicked)
           router.push('/settings/my/info?status=editting', undefined, {
             shallow: true,
+            shallow: true,
           })
         }}
       >
