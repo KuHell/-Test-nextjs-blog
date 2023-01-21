@@ -8,7 +8,6 @@ import SubLayout from '../components/SubLayout'
 
 export async function getStaticProps() {
   console.log('server')
-  console.log('server')
   return {
     props: { time: new Date().toISOString() },
   }
