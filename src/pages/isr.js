@@ -5,6 +5,7 @@ import styles from '../../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import SubLayout from '../components/SubLayout'
+import SubLayout from '../components/SubLayout'
 
 export async function getStaticProps() {
   console.log('server')
