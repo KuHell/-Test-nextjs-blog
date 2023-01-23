@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 import SubLayout from '../components/SubLayout'
 
 export async function getStaticProps() {
-  console.log('server')
+  console.log('client')
   return {
     props: { time: new Date().toISOString() },
     revalidate: 1,
